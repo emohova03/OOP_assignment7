@@ -1,69 +1,94 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class LibraryManagementGUI {
-    private Book book;
-    private Magazine magazine;
+    private Member currentMember;
+    private List<LibraryItem> libraryItems;
 
     public LibraryManagementGUI() {
-        book = new Book(101);
-        magazine = new Magazine(201);
+        libraryItems = new ArrayList<>();
+        libraryItems.add(new Book(101));
+        libraryItems.add(new Book(102));
+        libraryItems.add(new Magazine(201));
     }
-
+    private void updateDropdown(JComboBox<String> dropdown) {
+        dropdown.removeAllItems();
+        for (LibraryItem item : libraryItems) {
+            dropdown.addItem("Item ID: " + item.getId() + " (Available: " + item.isAvailable() + ")");
+        }
+    }
     public void createAndShowGUI() {
         JFrame frame = new JFrame("Library Management System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(500, 400);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(0, 1));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JLabel bookLabel = new JLabel("Book (ID: 101) - Status: Available");
-        JLabel magazineLabel = new JLabel("Magazine (ID: 201) - Status: Available");
+        JLabel memberLabel = new JLabel("Select a Member:");
+        JButton facultyButton = new JButton("Faculty Member");
+        JButton studentButton = new JButton("Student Member");
+        JButton guestButton = new JButton("Guest Member");
 
-        JButton borrowBookButton = new JButton("Borrow Book");
-        JButton returnBookButton = new JButton("Return Book");
-        JButton borrowMagazineButton = new JButton("Borrow Magazine");
-        JButton returnMagazineButton = new JButton("Return Magazine");
+        JLabel itemLabel = new JLabel("Select an Item:");
+        JComboBox<String> itemDropdown = new JComboBox<>(
+                libraryItems.stream().map(item -> "Item ID: " + item.getId() + " (Available: " + item.isAvailable() + ")").toArray(String[]::new)
+        );
+        JButton borrowButton = new JButton("Borrow Item");
+        JButton returnButton = new JButton("Return Item");
 
-        borrowBookButton.addActionListener(e -> {
-            book.borrowItem();
-            updateLabel(book, bookLabel);
+        JLabel statusLabel = new JLabel("Status: No member selected.");
+
+        facultyButton.addActionListener(e -> {
+            currentMember = new FacultyMember("F001", "Dr. Smith");
+            statusLabel.setText("Current Member: Faculty - Dr. Smith");
         });
 
-        returnBookButton.addActionListener(e -> {
-            book.returnItem();
-            updateLabel(book, bookLabel);
+        studentButton.addActionListener(e -> {
+            currentMember = new StudentMember("S001", "Alice");
+            statusLabel.setText("Current Member: Student - Alice");
         });
 
-        borrowMagazineButton.addActionListener(e -> {
-            magazine.borrowItem();
-            updateLabel(magazine, magazineLabel);
+        guestButton.addActionListener(e -> {
+            currentMember = new GuestMember("G001", "Bob");
+            statusLabel.setText("Current Member: Guest - Bob");
+        });
+        borrowButton.addActionListener(e -> {
+            if (currentMember == null) {
+                JOptionPane.showMessageDialog(frame, "Please select a member first.");
+                return;
+            }
+            int selectedIndex = itemDropdown.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                currentMember.borrowItem(libraryItems.get(selectedIndex));
+                updateDropdown(itemDropdown);
+            }
         });
 
-        returnMagazineButton.addActionListener(e -> {
-            magazine.returnItem();
-            updateLabel(magazine, magazineLabel);
+        returnButton.addActionListener(e -> {
+            if (currentMember == null) {
+                JOptionPane.showMessageDialog(frame, "Please select a member first.");
+                return;
+            }
+            int selectedIndex = itemDropdown.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                currentMember.returnItem(libraryItems.get(selectedIndex));
+                updateDropdown(itemDropdown);
+            }
         });
-
-        panel.add(bookLabel);
-        panel.add(borrowBookButton);
-        panel.add(returnBookButton);
-        panel.add(magazineLabel);
-        panel.add(borrowMagazineButton);
-        panel.add(returnMagazineButton);
+        panel.add(memberLabel);
+        panel.add(facultyButton);
+        panel.add(studentButton);
+        panel.add(guestButton);
+        panel.add(itemLabel);
+        panel.add(itemDropdown);
+        panel.add(borrowButton);
+        panel.add(returnButton);
+        panel.add(statusLabel);
 
         frame.add(panel);
         frame.setVisible(true);
-    }
-
-    private void updateLabel(LibraryItem item, JLabel label) {
-        if (item.isAvailable()) {
-            label.setText(item instanceof Book ? "Book (ID: " + item.getId() + ") - Status: Available"
-                    : "Magazine (ID: " + item.getId() + ") - Status: Available");
-        } else {
-            label.setText(item instanceof Book ? "Book (ID: " + item.getId() + ") - Status: Borrowed, Due in " + item.getDueInDays() + " days"
-                    : "Magazine (ID: " + item.getId() + ") - Status: Borrowed, Due in " + item.getDueInDays() + " days");
-        }
     }
 }
