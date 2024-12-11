@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82761079-64e9-466e-8a04-d9ad405ac1df" name="Changes" comment="added MemberInterface">
-      <change afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LibraryManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryManagementSystem.java" afterDir="false" />
+    <list default="true" id="82761079-64e9-466e-8a04-d9ad405ac1df" name="Changes" comment="added abstract class member">
+      <change afterPath="$PROJECT_DIR$/src/FacultyMember.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733946701513</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added abstract class member">
+      <option name="closed" value="true" />
+      <created>1733947351159</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733947351159</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added MemberInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="added MemberInterface" />
+    <MESSAGE value="added abstract class member" />
+    <option name="LAST_COMMIT_MESSAGE" value="added abstract class member" />
   </component>
 </project>
