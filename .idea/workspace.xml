@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="82761079-64e9-466e-8a04-d9ad405ac1df" name="Changes" comment="" />
+    <list default="true" id="82761079-64e9-466e-8a04-d9ad405ac1df" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MemberInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryManagementGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryManagementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazine.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "emohova03"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/emohova03/OOP_assignment7.git",
+    "accountId": "6a5a2c00-276f-4e83-b929-57297da544e6"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2q5DqcJARp5PHnDgjc9I0DD731n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -21,6 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.LibraryManagementSystem.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true"
@@ -36,5 +68,16 @@
       <updated>1733943736038</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
